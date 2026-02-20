@@ -1,6 +1,20 @@
 import { useEffect, useRef, useState } from "react";
 import apexeraLogo from "@/assets/apexera-logo.png";
 
+const REGISTRATION_DEADLINE = new Date("2026-03-10T23:59:00").getTime();
+
+const getTimeLeft = () => {
+  const now = Date.now();
+  const diff = Math.max(0, REGISTRATION_DEADLINE - now);
+  return {
+    days: Math.floor(diff / (1000 * 60 * 60 * 24)),
+    hours: Math.floor((diff / (1000 * 60 * 60)) % 24),
+    minutes: Math.floor((diff / (1000 * 60)) % 60),
+    seconds: Math.floor((diff / 1000) % 60),
+    expired: diff <= 0,
+  };
+};
+
 const stats = [
   { target: 6, label: "Epic Events" },
   { target: 5000, label: "Cash Prizes", prefix: "₹" },
@@ -9,8 +23,14 @@ const stats = [
 
 const HeroSection = () => {
   const [counts, setCounts] = useState(stats.map(() => 0));
+  const [timeLeft, setTimeLeft] = useState(getTimeLeft());
   const statsRef = useRef<HTMLDivElement>(null);
   const animated = useRef(false);
+
+  useEffect(() => {
+    const timer = setInterval(() => setTimeLeft(getTimeLeft()), 1000);
+    return () => clearInterval(timer);
+  }, []);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -62,7 +82,7 @@ const HeroSection = () => {
 
       <div className="flex flex-wrap justify-center gap-4 sm:gap-6 md:gap-8 mb-8 animate-fade-in-up-delay-2">
         {[
-          { icon: "📅", title: "Date & Time", value: "Coming Soon" },
+          { icon: "📅", title: "Date & Time", value: "16th & 17th March 2026" },
           { icon: "📍", title: "Venue", value: "Sri Sairam Engineering College" },
           { icon: "🎟️", title: "Registration", value: "FREE FOR ALL", highlight: true },
         ].map((item) => (
@@ -84,6 +104,30 @@ const HeroSection = () => {
             <div className="text-muted-foreground text-sm sm:text-base mt-1">{stat.label}</div>
           </div>
         ))}
+      </div>
+
+      <div className="glass-card p-6 sm:p-8 mb-6 animate-fade-in-up-delay-3 text-center">
+        <p className="text-red-400 font-display font-bold text-lg sm:text-xl mb-4 tracking-wider">
+          ⚡ REGISTRATION CLOSES IN ⚡
+        </p>
+        <div className="flex justify-center gap-3 sm:gap-6">
+          {[
+            { val: timeLeft.days, label: "Days" },
+            { val: timeLeft.hours, label: "Hours" },
+            { val: timeLeft.minutes, label: "Minutes" },
+            { val: timeLeft.seconds, label: "Seconds" },
+          ].map((t) => (
+            <div key={t.label} className="flex flex-col items-center">
+              <div className="font-display font-black text-3xl sm:text-4xl md:text-5xl text-primary" style={{ textShadow: "0 0 20px hsla(180,100%,50%,0.5)", minWidth: "60px" }}>
+                {String(t.val).padStart(2, "0")}
+              </div>
+              <span className="text-muted-foreground text-xs sm:text-sm mt-1">{t.label}</span>
+            </div>
+          ))}
+        </div>
+        {timeLeft.expired && (
+          <p className="text-red-500 font-display font-bold text-xl mt-4 animate-electric-pulse">REGISTRATION CLOSED</p>
+        )}
       </div>
 
       <button onClick={scrollToEvents} className="btn-electric text-base sm:text-lg px-8 sm:px-12 py-3 sm:py-4 animate-btn-pulse animate-fade-in-up-delay-4">
