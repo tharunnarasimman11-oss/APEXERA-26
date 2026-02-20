@@ -268,6 +268,12 @@
   50% { box-shadow: 0 0 50px hsla(180,100%,50%,0.7), 0 0 80px hsla(210,100%,50%,0.3); }
 }
 
+@keyframes titleGlowLogo {
+  0%, 100% { filter: drop-shadow(0 0 30px hsla(40, 100%, 50%, 0.4)); }
+  50% { filter: drop-shadow(0 0 50px hsla(40, 100%, 50%, 0.6)) drop-shadow(0 0 80px hsla(40, 100%, 50%, 0.3)); }
+}
+
+.animate-title-glow-logo { animation: titleGlowLogo 2.5s ease-in-out infinite; }
 .animate-title-glow { animation: titleGlow 2s ease-in-out infinite; }
 .animate-electric-pulse { animation: electricPulse 1s ease-in-out infinite; }
 .animate-grid-move { animation: gridMove 20s linear infinite; }
