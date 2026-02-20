@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from "react";
+import apexeraLogo from "@/assets/apexera-logo.png";
 
 const stats = [
   { target: 6, label: "Epic Events" },
@@ -44,9 +45,16 @@ const HeroSection = () => {
 
   return (
     <section id="home" className="min-h-screen flex flex-col justify-center items-center text-center px-4 pt-24 pb-16 relative">
-      <h1 className="font-display font-black text-5xl sm:text-6xl md:text-7xl lg:text-8xl tracking-wider mb-4 animate-title-glow animate-fade-in-up">
-        APE<span className="text-primary animate-electric-pulse inline-block">X</span>ERA '25
-      </h1>
+      <div className="group mb-4 animate-fade-in-up cursor-pointer relative">
+        <img
+          src={apexeraLogo}
+          alt="APEXERA 26"
+          className="w-[280px] sm:w-[380px] md:w-[480px] lg:w-[580px] drop-shadow-[0_0_30px_hsla(40,100%,50%,0.4)] transition-all duration-500 ease-out group-hover:scale-110 group-hover:drop-shadow-[0_0_60px_hsla(40,100%,50%,0.7)] group-hover:brightness-125 animate-title-glow-logo"
+        />
+        <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none">
+          <div className="absolute inset-0 bg-[radial-gradient(circle,hsla(40,100%,50%,0.15)_0%,transparent_70%)] scale-150" />
+        </div>
+      </div>
 
       <p className="text-lg sm:text-xl md:text-2xl text-muted-foreground font-light tracking-wider mb-8 animate-fade-in-up-delay-1">
         Towards the Summit of Sustainable Era
