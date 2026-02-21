@@ -11,11 +11,11 @@ const whyItems = [
 const ContactSection = () => {
   return (
     <section id="contact" className="min-h-screen flex flex-col justify-center items-center px-4 sm:px-6 py-20 sm:py-24">
-      <h2 className="section-glow-title text-3xl sm:text-4xl md:text-5xl mb-8 sm:mb-12">Join Us at APEXERA '25</h2>
+      <h2 className="section-glow-title text-3xl sm:text-4xl md:text-5xl mb-8 sm:mb-12">Join Us at APEXERA '26</h2>
 
       <div className="max-w-5xl w-full">
         {/* Why attend */}
-        <div className="glass-card p-6 sm:p-10 mb-10 group" style={{ borderColor: "hsla(180,100%,50%,0.3)" }}>
+        <div className="glass-card p-6 sm:p-10 mb-10">
           <h3 className="text-primary font-bold text-xl sm:text-2xl mb-2 relative z-10" style={{ fontFamily: "'Rajdhani', sans-serif" }}>
             🎉 Registration is 100% FREE!
           </h3>
@@ -24,8 +24,8 @@ const ContactSection = () => {
           </h3>
           <ul className="space-y-4 relative z-10">
             {whyItems.map((item, i) => (
-              <li key={i} className="text-muted-foreground text-sm sm:text-base leading-relaxed pl-8 relative hover:text-foreground hover:translate-x-2 transition-all duration-300 cursor-default">
-                <span className="absolute left-0 text-primary text-lg">⚡</span>
+              <li key={i} className="text-muted-foreground text-sm sm:text-base leading-relaxed pl-8 relative hover:text-foreground hover:translate-x-1 transition-all duration-300 cursor-default">
+                <span className="absolute left-0 text-secondary text-lg">✦</span>
                 {item}
               </li>
             ))}
@@ -52,7 +52,7 @@ const ContactSection = () => {
             ))}
           </div>
           <div>
-            <h3 className="text-primary font-bold text-lg sm:text-xl mb-4" style={{ fontFamily: "'Rajdhani', sans-serif" }}>🌱 About APEXERA '25</h3>
+            <h3 className="text-primary font-bold text-lg sm:text-xl mb-4" style={{ fontFamily: "'Rajdhani', sans-serif" }}>🌱 About APEXERA '26</h3>
             <p className="text-muted-foreground text-sm sm:text-base leading-relaxed">
               Sustainable Development Congress - Towards the Summit of Sustainable Era. Join us in creating innovative solutions for a greener, more sustainable tomorrow.
             </p>

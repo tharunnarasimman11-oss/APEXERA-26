@@ -87,7 +87,7 @@ const HeroSection = () => {
         ].map((item) => (
           <div key={item.title} className="glass-card p-4 sm:p-6 text-center min-w-[160px]">
             <h3 className="text-primary font-display font-bold text-base sm:text-lg mb-2">{item.icon} {item.title}</h3>
-            <p className={`text-sm sm:text-base ${item.highlight ? "text-green-400 font-bold text-lg" : "text-muted-foreground"}`}>
+            <p className={`text-sm sm:text-base ${item.highlight ? "text-secondary font-bold text-lg" : "text-muted-foreground"}`}>
               {item.value}
             </p>
           </div>
@@ -97,7 +97,7 @@ const HeroSection = () => {
       <div ref={statsRef} className="flex flex-wrap justify-center gap-8 sm:gap-12 mb-8 animate-fade-in-up-delay-3">
         {stats.map((stat, i) => (
           <div key={stat.label} className="text-center">
-            <div className="font-display font-black text-3xl sm:text-4xl md:text-5xl text-primary" style={{ textShadow: "0 0 20px hsla(180,100%,50%,0.5)" }}>
+            <div className="font-display font-black text-3xl sm:text-4xl md:text-5xl text-secondary" style={{ textShadow: "0 0 20px hsla(40,90%,55%,0.4)" }}>
               {stat.prefix || ""}{counts[i].toLocaleString()}
             </div>
             <div className="text-muted-foreground text-sm sm:text-base mt-1">{stat.label}</div>
@@ -106,8 +106,8 @@ const HeroSection = () => {
       </div>
 
       <div className="glass-card p-6 sm:p-8 mb-6 animate-fade-in-up-delay-3 text-center">
-        <p className="text-red-400 font-display font-bold text-lg sm:text-xl mb-4 tracking-wider">
-          ⚡ REGISTRATION CLOSES IN ⚡
+        <p className="text-secondary font-display font-bold text-lg sm:text-xl mb-4 tracking-wider">
+          ⏳ REGISTRATION CLOSES IN ⏳
         </p>
         <div className="flex justify-center gap-3 sm:gap-6">
           {[
@@ -117,7 +117,7 @@ const HeroSection = () => {
             { val: timeLeft.seconds, label: "Seconds" },
           ].map((t) => (
             <div key={t.label} className="flex flex-col items-center">
-              <div className="font-display font-black text-3xl sm:text-4xl md:text-5xl text-primary" style={{ textShadow: "0 0 20px hsla(180,100%,50%,0.5)", minWidth: "60px" }}>
+              <div className="font-display font-black text-3xl sm:text-4xl md:text-5xl text-primary" style={{ textShadow: "0 0 15px hsla(270,60%,55%,0.4)", minWidth: "60px" }}>
                 {String(t.val).padStart(2, "0")}
               </div>
               <span className="text-muted-foreground text-xs sm:text-sm mt-1">{t.label}</span>
@@ -125,7 +125,7 @@ const HeroSection = () => {
           ))}
         </div>
         {isExpired && (
-          <p className="text-red-500 font-display font-bold text-xl mt-4">REGISTRATION CLOSED</p>
+          <p className="text-destructive font-display font-bold text-xl mt-4">REGISTRATION CLOSED</p>
         )}
       </div>
 

@@ -21,13 +21,13 @@ const Navbar = () => {
 
   return (
     <nav className="fixed top-0 w-full z-50 border-b border-border/30" style={{
-      background: "hsla(230, 60%, 7%, 0.8)",
+      background: "hsla(250, 30%, 10%, 0.85)",
       backdropFilter: "blur(20px)",
       boxShadow: "0 4px 30px rgba(0,0,0,0.5)",
     }}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 flex justify-between items-center h-16">
         <div className="font-display font-black text-xl sm:text-2xl tracking-wider"
-          style={{ background: "var(--gradient-electric)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>
+          style={{ background: "var(--gradient-storm)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>
           APEXERA '26
         </div>
 
@@ -50,7 +50,7 @@ const Navbar = () => {
 
       {/* Mobile menu */}
       {isOpen && (
-        <div className="md:hidden border-t border-border/30 py-4" style={{ background: "hsla(230, 60%, 7%, 0.98)", backdropFilter: "blur(20px)" }}>
+        <div className="md:hidden border-t border-border/30 py-4" style={{ background: "hsla(250, 30%, 10%, 0.98)", backdropFilter: "blur(20px)" }}>
           <ul className="flex flex-col items-center gap-4">
             {navItems.map((item) => (
               <li key={item.href}>
