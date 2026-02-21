@@ -28,7 +28,7 @@ const Navbar = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 flex justify-between items-center h-16">
         <div className="font-display font-black text-xl sm:text-2xl tracking-wider"
           style={{ background: "var(--gradient-electric)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>
-          APEXERA '25
+          APEXERA '26
         </div>
 
         {/* Desktop nav */}

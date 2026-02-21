@@ -1,4 +1,4 @@
-const partners = ["IEEE", "IEEE EPS", "IEEE Sairam", "EnSAv Club", "Sairam Institutions"];
+const partners = ["IEEE", "IEEE EPS", "IEEE Sairam", "Sairam Institutions"];
 
 const leaders = [
   { name: "Dr. B.Vijaya Ramnath", role: "Society Captain", dept: "HOD/Mech" },
@@ -12,7 +12,7 @@ const PartnersSection = () => {
   return (
     <section id="partners" className="min-h-screen flex flex-col justify-center items-center px-4 sm:px-6 py-20 sm:py-24">
       <h2 className="section-glow-title text-3xl sm:text-4xl md:text-5xl mb-8 sm:mb-12">Our Partners</h2>
-      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-4 sm:gap-6 max-w-4xl w-full mb-16">
+      <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 sm:gap-6 max-w-4xl w-full mb-16">
         {partners.map((p, i) => (
           <div key={p} className="glass-card p-4 sm:p-6 text-center font-bold text-primary text-sm sm:text-base font-display"
             style={{ animationDelay: `${i * 0.2}s` }}>

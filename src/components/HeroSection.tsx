@@ -18,7 +18,7 @@ const getTimeLeft = () => {
 const stats = [
   { target: 6, label: "Epic Events" },
   { target: 5000, label: "Cash Prizes", prefix: "₹" },
-  { target: 1, label: "Day of Innovation" },
+  { target: 2, label: "Days of Innovation" },
 ];
 
 const HeroSection = () => {
@@ -63,17 +63,16 @@ const HeroSection = () => {
     document.querySelector("#events")?.scrollIntoView({ behavior: "smooth" });
   };
 
+  const isExpired = timeLeft.expired;
+
   return (
     <section id="home" className="min-h-screen flex flex-col justify-center items-center text-center px-4 pt-24 pb-16 relative">
-      <div className="group mb-4 animate-fade-in-up cursor-pointer relative">
+      <div className="mb-4 animate-fade-in-up">
         <img
           src={apexeraLogo}
           alt="APEXERA 26"
-          className="w-[280px] sm:w-[380px] md:w-[480px] lg:w-[580px] drop-shadow-[0_0_30px_hsla(40,100%,50%,0.4)] transition-all duration-500 ease-out group-hover:scale-110 group-hover:drop-shadow-[0_0_60px_hsla(40,100%,50%,0.7)] group-hover:brightness-125 animate-title-glow-logo"
+          className="w-[280px] sm:w-[380px] md:w-[480px] lg:w-[580px] drop-shadow-[0_0_30px_hsla(40,100%,50%,0.4)] animate-title-glow-logo"
         />
-        <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none">
-          <div className="absolute inset-0 bg-[radial-gradient(circle,hsla(40,100%,50%,0.15)_0%,transparent_70%)] scale-150" />
-        </div>
       </div>
 
       <p className="text-lg sm:text-xl md:text-2xl text-muted-foreground font-light tracking-wider mb-8 animate-fade-in-up-delay-1">
@@ -125,13 +124,17 @@ const HeroSection = () => {
             </div>
           ))}
         </div>
-        {timeLeft.expired && (
-          <p className="text-red-500 font-display font-bold text-xl mt-4 animate-electric-pulse">REGISTRATION CLOSED</p>
+        {isExpired && (
+          <p className="text-red-500 font-display font-bold text-xl mt-4">REGISTRATION CLOSED</p>
         )}
       </div>
 
-      <button onClick={scrollToEvents} className="btn-electric text-base sm:text-lg px-8 sm:px-12 py-3 sm:py-4 animate-btn-pulse animate-fade-in-up-delay-4">
-        <span className="relative z-10">⚡ REGISTER NOW ⚡</span>
+      <button
+        onClick={isExpired ? undefined : scrollToEvents}
+        disabled={isExpired}
+        className={`text-base sm:text-lg px-8 sm:px-12 py-3 sm:py-4 animate-fade-in-up-delay-4 ${isExpired ? "btn-electric opacity-50 cursor-not-allowed" : "btn-electric"}`}
+      >
+        <span className="relative z-10">{isExpired ? "REGISTRATION CLOSED" : "⚡ REGISTER NOW ⚡"}</span>
       </button>
 
       <div className="mt-8 sm:mt-12 text-center animate-fade-in-up-delay-4">
