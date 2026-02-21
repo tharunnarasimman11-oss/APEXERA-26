@@ -15,7 +15,7 @@ const ScheduleSection = () => {
     <div className="mb-12 last:mb-0">
       <div className="flex items-center gap-4 mb-6">
         <div className="text-center">
-          <div className="font-display font-black text-4xl sm:text-5xl text-primary" style={{ textShadow: "0 0 20px hsla(180,100%,50%,0.5)" }}>
+          <div className="font-display font-black text-4xl sm:text-5xl text-secondary" style={{ textShadow: "0 0 15px hsla(40,90%,55%,0.3)" }}>
             {date}
           </div>
           <div className="text-muted-foreground text-sm font-semibold">{label}</div>
@@ -29,7 +29,7 @@ const ScheduleSection = () => {
               {item.title}
             </h4>
             <p className="text-muted-foreground text-sm sm:text-base leading-relaxed">{item.desc}</p>
-            <p className="text-primary font-semibold text-sm mt-3">{item.sdg}</p>
+            <p className="text-secondary font-semibold text-sm mt-3">{item.sdg}</p>
           </div>
         ))}
       </div>
@@ -39,7 +39,7 @@ const ScheduleSection = () => {
   return (
     <section id="schedule" className="min-h-screen flex flex-col justify-center items-center px-4 sm:px-6 py-20 sm:py-24">
       <h2 className="section-glow-title text-3xl sm:text-4xl md:text-5xl mb-6">Event Schedule</h2>
-      <h3 className="text-primary font-display font-bold text-xl sm:text-2xl text-center mb-10" style={{ textShadow: "0 0 20px hsla(180,100%,50%,0.5)" }}>
+      <h3 className="text-primary font-display font-bold text-xl sm:text-2xl text-center mb-10" style={{ textShadow: "0 0 15px hsla(270,60%,55%,0.3)" }}>
         2-DAY EVENT SCHEDULE
       </h3>
       <div className="max-w-5xl w-full">
