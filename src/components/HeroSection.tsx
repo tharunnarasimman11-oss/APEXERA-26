@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState, useCallback } from "react";
 import apexeraLogo from "@/assets/apexera-logo.png";
 
 const REGISTRATION_DEADLINE = new Date("2026-03-10T23:59:00").getTime();
@@ -26,6 +26,114 @@ const HeroSection = () => {
   const [timeLeft, setTimeLeft] = useState(getTimeLeft());
   const statsRef = useRef<HTMLDivElement>(null);
   const animated = useRef(false);
+  const logoCanvasRef = useRef<HTMLCanvasElement>(null);
+  const logoContainerRef = useRef<HTMLDivElement>(null);
+
+  // Golden shower / sparkle particle effect around logo
+  useEffect(() => {
+    const canvas = logoCanvasRef.current;
+    const container = logoContainerRef.current;
+    if (!canvas || !container) return;
+
+    const ctx = canvas.getContext("2d")!;
+    let animId: number;
+
+    interface Particle {
+      x: number; y: number; vx: number; vy: number;
+      size: number; alpha: number; decay: number;
+      hue: number; sparkle: boolean;
+    }
+
+    const particles: Particle[] = [];
+
+    const resize = () => {
+      const rect = container.getBoundingClientRect();
+      canvas.width = rect.width;
+      canvas.height = rect.height;
+    };
+    resize();
+    window.addEventListener("resize", resize);
+
+    const spawn = () => {
+      const w = canvas.width;
+      const h = canvas.height;
+      // Spawn from top area, spread across width
+      for (let i = 0; i < 3; i++) {
+        const x = Math.random() * w;
+        const y = -5 + Math.random() * 10;
+        particles.push({
+          x, y,
+          vx: (Math.random() - 0.5) * 1.2,
+          vy: 0.8 + Math.random() * 2,
+          size: 1.5 + Math.random() * 3,
+          alpha: 0.7 + Math.random() * 0.3,
+          decay: 0.003 + Math.random() * 0.006,
+          hue: 35 + Math.random() * 20, // gold range
+          sparkle: Math.random() > 0.6,
+        });
+      }
+    };
+
+    const draw = () => {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+      spawn();
+
+      for (let i = particles.length - 1; i >= 0; i--) {
+        const p = particles[i];
+        p.x += p.vx;
+        p.y += p.vy;
+        p.vy += 0.02; // gravity
+        p.alpha -= p.decay;
+
+        if (p.alpha <= 0 || p.y > canvas.height) {
+          particles.splice(i, 1);
+          continue;
+        }
+
+        ctx.save();
+        ctx.globalAlpha = p.alpha;
+
+        if (p.sparkle && Math.random() > 0.5) {
+          // Draw star sparkle
+          const spikes = 4;
+          const outerR = p.size * 2;
+          const innerR = p.size * 0.8;
+          ctx.beginPath();
+          for (let s = 0; s < spikes * 2; s++) {
+            const r = s % 2 === 0 ? outerR : innerR;
+            const angle = (s * Math.PI) / spikes - Math.PI / 2;
+            const sx = p.x + Math.cos(angle) * r;
+            const sy = p.y + Math.sin(angle) * r;
+            s === 0 ? ctx.moveTo(sx, sy) : ctx.lineTo(sx, sy);
+          }
+          ctx.closePath();
+          ctx.fillStyle = `hsla(${p.hue}, 90%, 65%, ${p.alpha})`;
+          ctx.shadowColor = `hsla(${p.hue}, 100%, 60%, 0.8)`;
+          ctx.shadowBlur = 8;
+          ctx.fill();
+        } else {
+          // Draw glowing circle
+          ctx.beginPath();
+          ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
+          ctx.fillStyle = `hsla(${p.hue}, 85%, 60%, ${p.alpha})`;
+          ctx.shadowColor = `hsla(${p.hue}, 100%, 55%, 0.6)`;
+          ctx.shadowBlur = 10;
+          ctx.fill();
+        }
+        ctx.restore();
+      }
+
+      animId = requestAnimationFrame(draw);
+    };
+
+    draw();
+
+    return () => {
+      cancelAnimationFrame(animId);
+      window.removeEventListener("resize", resize);
+    };
+  }, []);
 
   useEffect(() => {
     const timer = setInterval(() => setTimeLeft(getTimeLeft()), 1000);
@@ -67,11 +175,12 @@ const HeroSection = () => {
 
   return (
     <section id="home" className="min-h-screen flex flex-col justify-center items-center text-center px-4 pt-24 pb-16 relative">
-      <div className="mb-4 animate-fade-in-up">
+      <div ref={logoContainerRef} className="mb-4 animate-fade-in-up relative w-[340px] sm:w-[460px] md:w-[600px] lg:w-[720px] aspect-[2/1] flex items-center justify-center">
+        <canvas ref={logoCanvasRef} className="absolute inset-0 pointer-events-none z-10" />
         <img
           src={apexeraLogo}
           alt="APEXERA 26"
-          className="w-[280px] sm:w-[380px] md:w-[480px] lg:w-[580px] drop-shadow-[0_0_30px_hsla(40,100%,50%,0.4)] animate-title-glow-logo"
+          className="w-full drop-shadow-[0_0_40px_hsla(40,100%,50%,0.5)] animate-title-glow-logo relative z-0"
         />
       </div>
 
