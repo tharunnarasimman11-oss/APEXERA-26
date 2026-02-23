@@ -17,7 +17,7 @@ const getTimeLeft = () => {
 
 const stats = [
   { target: 6, label: "Epic Events" },
-  { target: 5000, label: "Cash Prizes", prefix: "₹" },
+  { target: 25000, label: "Cash Prizes", prefix: "₹" },
   { target: 2, label: "Days of Innovation" },
 ];
 
