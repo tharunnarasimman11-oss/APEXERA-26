@@ -38,8 +38,8 @@ const ContactSection = () => {
             <h3 className="text-primary font-bold text-lg sm:text-xl mb-4" style={{ fontFamily: "'Rajdhani', sans-serif" }}>📞 Contact Us</h3>
             <p className="text-muted-foreground text-sm sm:text-base mb-1">Sri Sairam Engineering College</p>
             <p className="text-muted-foreground text-sm sm:text-base mb-1">Chennai, Tamil Nadu</p>
-            <p className="text-muted-foreground text-sm sm:text-base mb-1">Email: apexera2025@sairam.edu.in</p>
-            <p className="text-muted-foreground text-sm sm:text-base">Phone: +91 XXXXXXXXXX</p>
+            <p className="text-muted-foreground text-sm sm:text-base mb-1">Email: sec23ee010@sairamtap.edu.in</p>
+            <p className="text-muted-foreground text-sm sm:text-base">Phone: +91 9150167085</p>
           </div>
           <div>
             <h3 className="text-primary font-bold text-lg sm:text-xl mb-4" style={{ fontFamily: "'Rajdhani', sans-serif" }}>🔗 Quick Links</h3>
