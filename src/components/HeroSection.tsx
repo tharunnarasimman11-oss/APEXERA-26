@@ -71,7 +71,7 @@ const HeroSection = () => {
         <img
           src={apexeraLogo}
           alt="APEXERA 26"
-          className="w-[280px] sm:w-[380px] md:w-[480px] lg:w-[580px] drop-shadow-[0_0_30px_hsla(40,100%,50%,0.4)] animate-title-glow-logo"
+          className="w-[340px] sm:w-[460px] md:w-[580px] lg:w-[700px] drop-shadow-[0_0_30px_hsla(40,100%,50%,0.4)] animate-title-glow-logo"
         />
       </div>
 
