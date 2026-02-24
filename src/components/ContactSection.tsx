@@ -1,7 +1,7 @@
 const whyItems = [
   "Learn from industry experts and gain hands-on experience with cutting-edge technologies like MATLAB and Generative AI",
   "Network with passionate students, professionals, and thought leaders in sustainability and innovation",
-  "Win exciting cash prizes up to ₹25,000, earn certificates, and gain recognition for your talent",
+  "Win exciting cash prizes up to ₹5,000, earn certificates, and gain recognition for your talent",
   "Develop in-demand skills in coding, AI, public speaking, entrepreneurship, and problem-solving",
   "Contribute to solving real-world sustainability challenges aligned with UN Sustainable Development Goals",
   "Showcase your innovative ideas on a prestigious platform and get valuable feedback from experts",

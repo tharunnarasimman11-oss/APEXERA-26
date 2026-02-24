@@ -14,7 +14,7 @@ const aboutCards = [
   {
     icon: "💰",
     title: "Cash Prizes",
-    subtitle: "Win up to ₹25,000",
+    subtitle: "Win up to ₹5,000",
     description: "Exciting cash prizes, certificates, and recognition await the top performers. Your innovation deserves rewards!",
   },
 ];
