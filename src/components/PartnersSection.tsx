@@ -2,10 +2,10 @@ const partners = ["IEEE", "IEEE EPS", "IEEE Sairam", "Sairam Institutions"];
 
 // Add more leaders here — just add a new object with name, role, dept (optional), and photo URL
 const leaders = [
-  { name: "Dr. Sai Prakash Leo Muthu", role: "Chairman & CEO", dept: "Sairam Institution", photo: "https://i.pravatar.cc/200?img=1" },
-  { name: "Dr. J. Raja", role: "Principal", dept: "Sri Sairam Engineering College", photo: "https://i.pravatar.cc/200?img=2" },
-  { name: "Dr. B.Vijaya Ramnath", role: "Society Captain", dept: "HOD/Mech", photo: "https://i.pravatar.cc/200?img=3" },
-  { name: "Dr. P. Maheshwari", role: "Society Advisor", photo: "https://i.pravatar.cc/200?img=4" },
+  { name: "Dr. Sai Prakash Leo Muthu", role: "Chairman & CEO", dept: "Sairam Institution", photo: "" },
+  { name: "Dr. J. Raja", role: "Principal", dept: "Sri Sairam Engineering College", photo: "" },
+  { name: "Dr. B.Vijaya Ramnath", role: "Society Captain", dept: "HOD/Mech", photo: "" },
+  { name: "Dr. P. Maheshwari", role: "Society Advisor", photo: "" },
 ];
 
 const PartnersSection = () => {
@@ -28,11 +28,17 @@ const PartnersSection = () => {
           <div key={l.name} className="glass-card p-6 sm:p-8 text-center group flex flex-col items-center">
             <div className="w-24 h-24 sm:w-28 sm:h-28 rounded-full overflow-hidden border-2 border-primary mb-4 group-hover:border-accent transition-colors duration-300"
               style={{ boxShadow: "0 0 20px hsla(270, 60%, 55%, 0.3)" }}>
-              <img
-                src={l.photo}
-                alt={l.name}
-                className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-              />
+              {l.photo ? (
+                <img
+                  src={l.photo}
+                  alt={l.name}
+                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                />
+              ) : (
+                <div className="w-full h-full bg-muted flex items-center justify-center text-muted-foreground text-2xl font-bold">
+                  {l.name.split(" ").map(n => n[0]).join("")}
+                </div>
+              )}
             </div>
             <h4 className="text-primary font-bold text-sm sm:text-base mb-1 relative z-10"
               style={{ fontFamily: "'Rajdhani', sans-serif" }}>
