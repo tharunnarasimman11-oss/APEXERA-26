@@ -3,7 +3,7 @@ const partners = ["IEEE", "IEEE EPS", "IEEE Sairam", "Sairam Institutions"];
 const leaders = [
   { name: "Dr. B.Vijaya Ramnath", role: "Society Captain", dept: "HOD/Mech" },
   { name: "Dr. P. Maheshwari", role: "Society Advisor" },
-  { name: "Dr. J. Raja", role: "Principal",role:"Sri sairam engineering college"}
+  { name: "Dr. J. Raja", role: "Principal", dept: "Sri Sairam Engineering College" },
   { name: "Dr. Sai Prakash Leo Muthu", role: "Chairman & CEO", dept: "Sairam Institution" },
 ];
 
