@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import apexeraLogo from "@/assets/apexera-logo.png";
+import lightningBg from "@/assets/lightning-bg.jpg";
 
 const REGISTRATION_DEADLINE = new Date("2026-03-10T23:59:00").getTime();
 
@@ -66,12 +67,22 @@ const HeroSection = () => {
   const isExpired = timeLeft.expired;
 
   return (
-    <section id="home" className="min-h-screen flex flex-col justify-center items-center text-center px-4 pt-24 pb-16 relative">
+    <section id="home" className="min-h-screen flex flex-col justify-center items-center text-center px-4 pt-24 pb-16 relative overflow-hidden">
+      {/* Cinematic lightning background */}
+      <div className="absolute inset-0 -z-10">
+        <img
+          src={lightningBg}
+          alt=""
+          className="w-full h-full object-cover opacity-60"
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-background/40 via-transparent to-background" />
+      </div>
+
       <div className="mb-4 animate-fade-in-up">
         <img
           src={apexeraLogo}
           alt="APEXERA 26"
-          className="w-[400px] sm:w-[520px] md:w-[680px] lg:w-[820px] drop-shadow-[0_0_50px_hsla(40,100%,50%,0.5)] animate-title-glow-logo"
+          className="w-[500px] sm:w-[650px] md:w-[850px] lg:w-[1000px] drop-shadow-[0_0_60px_hsla(40,100%,50%,0.6)] animate-title-glow-logo"
         />
       </div>
 
