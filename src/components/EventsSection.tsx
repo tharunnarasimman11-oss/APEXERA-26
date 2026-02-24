@@ -9,7 +9,7 @@ const events = [
   { id: "algoarena", icon: "💻", title: "AlgoArena", desc: "Coding for a Sustainable Tomorrow - Two-round coding competition with cash prizes for top 3 winners!", day: 1, registerUrl: "https://docs.google.com/forms/d/e/1FAIpQLSfz6LBgLJY1GAN_I6S3DjKMbizdvF8hBT1ubg3vhEHLNpYPQw/viewform?usp=dialog" },
   { id: "techtangle", icon: "⚡", title: "TechTangle", desc: "Entangling Creativity with Sustainable Technology - Create mini-models in MATLAB that solve real sustainability challenges.", day: 2, registerUrl: "https://docs.google.com/forms/d/e/1FAIpQLSeV6JBjkQ2iXhXnExCmrtAh4rFQ2fsVz0t-lbS35y0VAb0sHg/viewform?usp=header" },
   { id: "innovision", icon: "🚀", title: "InnoVision", desc: "Innovating for a Greener Future - Pitch your sustainable business ideas and win cash prizes and certificates!", day: 2, registerUrl: "https://docs.google.com/forms/d/e/1FAIpQLSeIIAaJ05nC7et66tkAfRyyCRq2lOkNYxjJNIXJRk8TIDLchA/viewform?usp=header" },
-  { id: "wordwarriors", icon: "🎤", title: "Word Warriors", desc: "Debating the Future of Sustainability - Tackle SDG-related topics and win prizes for your eloquence!", day: 2, registerUrl: "https://docs.google.com/forms/d/e/1FAIpQLSeYm5kCRTK6qGlQmmi_5PJCgJaerSS89JvQqO2EHeiDPwkwRA/viewform?usp=header" },
+  { id: "wordwarriors", icon: "🎤", title: "Word Warriors", desc: "Debating the Future of Sustainability - Tackle SDG-related topics and win prizes for your eloquence!", day: 2, registerUrl: "https://docs.google.com/forms/d/e/1FAIpQLSeycVXI_gsxOIkHaOFY2m3R2vi1O5Zkm77QhuRZ9fgIEBOqxw/viewform?usp=publish-editor" },
 ];
 
 const eventDetails: Record<string, { title: string; subtitle: string; description: string; outcome: string; sdgs: string }> = {
